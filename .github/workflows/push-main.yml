@@ -17,5 +17,6 @@ jobs:
           architecture: x64
       - name: Publish to GitHub Packages
         env:
+          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: mvn -B deploy
+        run: mvn -s settings.xml -B deploy
